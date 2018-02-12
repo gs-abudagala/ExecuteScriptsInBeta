@@ -1,0 +1,8 @@
+{
+  "mongo_host": "gs-mongo-dev1.develgs.com",
+  "mongo_port": "27017",
+  "mongo_db": "qaautomationdb",
+  "mongo_username": "qauser",
+  "mongo_password": "A23A673B-14A1-467B-BFC3-5AC87F4007BF",
+  "mongo_ssl_enable": "true"
+}

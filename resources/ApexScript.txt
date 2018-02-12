@@ -1,0 +1,16 @@
+JBCXM__GSFeatureSettings__c antConfigs=   [SELECT Id,JBCXM__Config__c,JBCXM__Feature__c,Name FROM JBCXM__GSFeatureSettings__c WHERE JBCXM__Feature__c = 'ANT_CONFIGS'];
+JBCXM__GSFeatureSettings__c feature = [SELECT Id,JBCXM__Config__c,JBCXM__Feature__c FROM JBCXM__GSFeatureSettings__c where JBCXM__Feature__c='CDN_DOMAIN' LIMIT:1];
+JBCXM__C360Sections__c c360Sections = [SELECT Id, JBCXM__CustomConfig__c, JBCXM__DisplayLabel__c FROM JBCXM__C360Sections__c where JBCXM__DisplayLabel__c = 'Summary'];
+
+antConfigs.JBCXM__Config__c='{"api_url":"https://scribble.develgs.com"}';
+feature.JBCXM__Config__c = 'https://staticjs.develgs.com/';
+c360Sections.JBCXM__CustomConfig__c = '{}';
+
+update antConfigs;
+update feature;
+update c360Sections;
+
+Delete [Select id from Case];
+Delete [Select id from Contract];
+Delete [Select id from Opportunity];
+Delete [Select id from Account];
