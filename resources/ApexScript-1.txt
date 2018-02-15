@@ -1,0 +1,17 @@
+List<GSFeatureSettings__c> cdnDomain = [SELECT Id,Config__c,Feature__c FROM GSFeatureSettings__c where Feature__c='CDN_DOMAIN' LIMIT:1];
+List<GSFeatureSettings__c> cdnVersion = [SELECT Id,Config__c,Feature__c FROM GSFeatureSettings__c where Feature__c='CDN_VERSION' LIMIT:1];
+
+if(cdnDomain.size() != 0) {
+    cdnDomain.get(0).Config__c = 'https://devstaticjs.develgs.com/';
+    update cdnDomain.get(0);
+} else {
+    GSFeatureSettings__c test = new GSFeatureSettings__c(Feature__c='CDN_DOMAIN', Config__c = 'https://devstaticjs.develgs.com/');
+    insert test;
+}
+if(cdnVersion.size() != 0) {
+    cdnVersion.get(0).Config__c = 'ui_march_rt_athakur';
+    update cdnVersion.get(0);
+} else {
+    GSFeatureSettings__c test = new GSFeatureSettings__c(Feature__c='CDN_VERSION', Config__c = 'ui_march_rt_athakur');
+    insert test;
+}
